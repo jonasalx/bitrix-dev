@@ -13,7 +13,8 @@ RUN \
  sed -i "s/;opcache.revalidate_freq=2/opcache.revalidate_freq=0/" /etc/php/7.0/apache2/php.ini && \
  sed -i "s/;mbstring.func_overload.*$/mbstring.func_overload=2/" /etc/php/7.0/apache2/php.ini && \
  sed -i "s/;mbstring.internal_encoding.*$/mbstring.internal_encoding=UTF-8/" /etc/php/7.0/apache2/php.ini && \
- sed -i "s/;realpath_cache_size.*$/realpath_cache_size=8M/" /etc/php/7.0/apache2/php.ini 
+ sed -i "s/;realpath_cache_size.*$/realpath_cache_size=8M/" /etc/php/7.0/apache2/php.ini && \
+ sed -i "s/;mbstring.func_overload = .*/c\mbstring.func_overload = 2" /etc/php/7.0/apache2/php.ini
 
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
